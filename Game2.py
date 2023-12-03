@@ -1,8 +1,17 @@
+"""
+    Bryan Rachmat and Andrew Singari
+    CMPT 401 Project
+
+    Game2 Color Memorization
+
+"""
 from machine import Pin,PWM,I2C
 from random import randint
 import time
 from ww import I2cLcd
 
+
+#Initializing hardware connections
 pins=[15,2,21]
 
 pwm0=PWM(Pin(pins[0]),10000)
@@ -25,54 +34,78 @@ level=4
 sequence=3+level
 
 def setColor(r,g,b):
+    """
+    Function to change the color of the RGB LED
+    """
     pwm0.duty(1023-b)
     pwm1.duty(1023-g)
     pwm2.duty(1023-r)
     
 def red():
+    """
+    setColor to red
+    """
     setColor(255,0,0)
     print("red")
     time.sleep_ms(1000)
     
 def green():
+    """
+    setColor to green
+    """
     setColor(0,255,0)
     print("green")
     time.sleep_ms(1000)
     
 def blue():
+    """
+    setColor to blue
+    """
     setColor(0,0,255)
     print("blue")
     time.sleep_ms(1000)
     
 def yellow():
+    """
+    setColor to yellow
+    """
     setColor(195,195,11)
     print("yellow")
     time.sleep_ms(1000)
 
 def none():
+    """
+    setColor to none
+    """
     setColor(0,0,0)
     time.sleep_ms(200)
     
 def generate_sequence(n):
+    """
+    Returns a sequence from 0 to 3 for random index, used for LED 
+    """
     array=[]
     for i in range (0,n):
         array.append(randint(0,3))
     
     return array
 
+#array of color, test order, and answers
 answers=[]
 colors=[red,green,blue,yellow]
 n=0
 score=0
 TestOrder=generate_sequence(sequence) 
 try:
-    
+    #LED Blink according to sequence
     for i in TestOrder:
         colors[i]()
         none()
     lcd.move_to(0, 0)
     lcd.clear()
     lcd.putstr("Click the buttons in order")
+
+    #User clicks button according to what they memorized.
     while n<sequence:
         if not yellow_button.value():     
             print("yellow")
@@ -97,6 +130,8 @@ try:
     for i in range(0,sequence):
         if TestOrder[i]==answers[i]:
             score+=1
+
+    #Calculates and prints score.    
     lcd.clear()
     lcd.putstr("Your Score is:")
     lcd.move_to(0,1)
