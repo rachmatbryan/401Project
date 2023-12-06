@@ -10,6 +10,10 @@ import time
 from ww import I2cLcd
 from irrecvdata import irGetCMD
 from random import randint
+import time
+
+# Record the start time
+start_time = time.time()
 
 #Initializing hardware connections
 i2c = I2C(scl=Pin(5), sda=Pin(18), freq=400000)
@@ -86,7 +90,10 @@ try:
             answers.append(int(hex_dict[irValue]))
             clicks+=1
 
-    #calculates and prints score.
+    end_time = time.time()
+
+    #Calculate the elapsed time
+    elapsed_time = end_time - start_time
     lcd.clear()
     lcd.putstr("Checking...")
     time.sleep_ms(2000)
@@ -95,10 +102,13 @@ try:
         if values[i]==answers[i]:
             score+=1
     lcd.clear()
-    lcd.putstr("Your Score is:")
-    lcd.move_to(0,1)
+    lcd.move_to(0,0)
+    lcd.putstr("Score:")
     lcd.putstr("%d" %(score))
     lcd.putstr("/%d" %(sequence))
+    lcd.move_to(0,1)
+    lcd.putstr("%d" %(elapsed_time))
+    lcd.putstr(" seconds")
 except:
     pass
 
@@ -106,5 +116,6 @@ except:
   
   
   
+
 
 

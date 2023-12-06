@@ -9,7 +9,10 @@ from machine import Pin,PWM,I2C
 from random import randint
 import time
 from ww import I2cLcd
+import time
 
+# Record the start time
+start_time = time.time()
 
 #Initializing hardware connections
 pins=[15,2,21]
@@ -89,6 +92,7 @@ def generate_sequence(n):
         array.append(randint(0,3))
     
     return array
+    
 
 #array of color, test order, and answers
 answers=[]
@@ -130,14 +134,20 @@ try:
     for i in range(0,sequence):
         if TestOrder[i]==answers[i]:
             score+=1
-
+    end_time = time.time()
+    #Calculate the elapsed time 
+    elapsed_time = end_time - start_time  
     #Calculates and prints score.    
     lcd.clear()
-    lcd.putstr("Your Score is:")
-    lcd.move_to(0,1)
+    lcd.move_to(0,0)
+    lcd.putstr("Score: ")
     lcd.putstr("%d" %(score))
     lcd.putstr("/%d" %(sequence))
+    lcd.move_to(0,1)
+    lcd.putstr("%d" %(elapsed_time))
+    lcd.putstr(" seconds")
     
 except:
     pass
         
+

@@ -11,6 +11,8 @@ from random import randint
 import time
 from ww import I2cLcd
 
+# Record the start time
+start_time = time.time()
 #Initializing hardware connections
 pins=[15,2,21]
 
@@ -84,6 +86,13 @@ def yellow():
     setColor(195,195,11)
     print("yellow")
     time.sleep_ms(1000)
+
+def none():
+    """
+    setColor to none
+    """
+    setColor(0,0,0)
+    time.sleep_ms(200)
     
 def generate_sequence():
     """
@@ -159,7 +168,7 @@ try:
     for i in range(0,4):
         colors[pairq[i][0]]()
         sounds[pairq[i][1]]()
-
+    none()
     #Plays a sound 4 times, after every sound the user has t pick a correct color.
     while n<4:
         lcd.clear()
@@ -180,19 +189,28 @@ try:
             print("green")
             answers.append(1)
         n+=1
-    
+    end_time = time.time()
+
+    # Calculate the elapsed time
+    elapsed_time = end_time - start_time
+
     #Calculates and prints score.
     lcd.clear()
     key=pair(answers,TestOrder)
     points=score(key,pairq)
     lcd.clear()
-    lcd.putstr("Your Score is:")
-    lcd.move_to(0,1)
+    lcd.move_to(0,0)
+    lcd.putstr("Score is:")
     lcd.putstr("%d" %(points))
     lcd.putstr("/4")
+    lcd.move_to(0,1)
+    lcd.putstr("%d" %(elapsed_time))
+    lcd.putstr(" seconds")
+    
 except:
     pwm0.deinit()
     pwm1.deinit()
     pwm2.deinit()
     pass
+
 
