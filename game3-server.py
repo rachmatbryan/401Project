@@ -138,7 +138,7 @@ try:
 
 
     url = 'https://coastspas.com/randomdeveloperenv/game.php'
-    data = {'score': score, 'name':'Number Memorization'}
+    data = {'score': score,'name':'Number Memorization','time':elapsed_time}
     json_data=ujson.dumps(data)
     
     headers = {
@@ -157,4 +157,5 @@ try:
 
 except:
     pass
+
 
