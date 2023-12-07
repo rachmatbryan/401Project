@@ -159,6 +159,7 @@ TestOrder=generate_sequence()
 n=0
 answers=[]
 
+
 try:
     #Initializes game
     lcd.move_to(0, 0)
@@ -212,5 +213,4 @@ except:
     pwm1.deinit()
     pwm2.deinit()
     pass
-
 

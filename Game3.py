@@ -54,7 +54,7 @@ def generate_sequence(n):
         array.append(randint(0,9))
     
     return array
-
+  
 #creates sequence
 values=generate_sequence(sequence)
 print(values)
@@ -66,6 +66,7 @@ lcd.clear()
 clicks=0
 answers=[]
 score=0
+
 
 try:
     #Initializes game
@@ -112,10 +113,9 @@ try:
 except:
     pass
 
-  
-  
-  
-  
+
+    
+    
 
 
 

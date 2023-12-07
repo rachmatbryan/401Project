@@ -100,6 +100,8 @@ colors=[red,green,blue,yellow]
 n=0
 score=0
 TestOrder=generate_sequence(sequence) 
+
+
 try:
     #LED Blink according to sequence
     for i in TestOrder:
@@ -149,5 +151,6 @@ try:
     
 except:
     pass
-        
+            
+
 
