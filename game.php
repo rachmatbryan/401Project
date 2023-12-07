@@ -22,9 +22,11 @@ if (!$db_selected) {
 
 $data = json_decode(file_get_contents('php://input'), true);
 $score = $data['score'];
+$name = $data['name'];
 $timestamp = date('Y-m-d H:i:s');
+$time = $data['time'];
 
-$sql = "INSERT INTO table1 (score, timestamp) VALUES ('$score', '$timestamp')";
+$sql = "INSERT INTO table1 (score, name, timestamp, time) VALUES ('$score', '$name', '$timestamp','$time')";
 
 // Execute the query
 $result = mysql_query($sql, $conn);
