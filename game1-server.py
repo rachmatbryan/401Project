@@ -235,7 +235,7 @@ try:
 
 
     url = 'https://coastspas.com/randomdeveloperenv/game.php'
-    data = {'score': points}
+    data = {'score': points, 'name':'Sound and LED Pairing'}
     json_data=ujson.dumps(data)
     
     headers = {
