@@ -2,6 +2,7 @@
 header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
+date_default_timezone_set('America/Los_Angeles'); 
 
 $servername = "localhost";
 $username = "stargazers";
@@ -14,7 +15,7 @@ if (!$conn) {
     die("Connection failed: " . mysql_error());
 }
 
-// Connect database
+// Select the database
 $db_selected = mysql_select_db($dbname, $conn);
 if (!$db_selected) {
     die("Can't use $dbname : " . mysql_error());
@@ -37,7 +38,7 @@ if (!$result) {
 }
 }
 
-$query = "SELECT * FROM table1"; 
+$query = "SELECT * FROM table1"; // Replace 'table1' with your actual table name
 $result = mysql_query($query, $conn);
 
 if (!$result) {
@@ -71,8 +72,8 @@ if (!$result) {
             --kls-font-weight: 400;
             --kls-line-height: 1.5rem;
             --kls-title-color: var(--kls-dark-color);
-            --kls-page-background: #ffffff; 
-            --kls-accent-color: #7189bf; 
+            --kls-page-background: #ffffff; /* Page Background */
+            --kls-accent-color: #7189bf; /* Lighter blue for accents */
         }
 
         body {
@@ -205,7 +206,7 @@ if (!$result) {
     <tbody>
         
         <?php
-        // Fetch data from the database
+        // PHP code to fetch data from the database
         while ($row = mysql_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td>" . $row['score'] . "</td>";
@@ -291,12 +292,13 @@ function drawBarChart() {
     var scores = [];
     var times = [];
 
+    // Loop through table rows and extract data
     for (var i = 1; i < table.rows.length; i++) {
         scores.push(table.rows[i].cells[0].innerHTML); 
         times.push(table.rows[i].cells[3].innerHTML); 
     }
 
-    // Chart
+    // Setup the chart data
     var data = {
         labels: scores,
         datasets: [{
@@ -308,6 +310,7 @@ function drawBarChart() {
         }]
     };
 
+    // Configurations for the chart
     var config = {
         type: 'bar',
         data: data,
@@ -367,6 +370,7 @@ function drawLineChart() {
         times.push(parseFloat(table.rows[i].cells[3].innerHTML)); 
     }
 
+    // Setup the chart data
     var lineData = {
         labels: timestamps,
         datasets: [{
@@ -447,6 +451,7 @@ function drawPieChart() {
         colorIndex++;
     }
 
+    // Setup the chart data
     var pieData = {
         labels: names,
         datasets: [{
