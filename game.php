@@ -292,13 +292,11 @@ function drawBarChart() {
     var scores = [];
     var times = [];
 
-    // Loop through table rows and extract data
     for (var i = 1; i < table.rows.length; i++) {
-        scores.push(table.rows[i].cells[0].innerHTML); 
-        times.push(table.rows[i].cells[3].innerHTML); 
+        scores.push(table.rows[i].cells[3].innerHTML); 
+        times.push(table.rows[i].cells[2].innerHTML); 
     }
 
-    // Setup the chart data
     var data = {
         labels: scores,
         datasets: [{
@@ -310,48 +308,59 @@ function drawBarChart() {
         }]
     };
 
-    // Configurations for the chart
     var config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Time',
-                        fontSize: 16
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Score',
-                        fontSize: 16
+    type: 'bar',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Time',
+                    font: {
+                        size: 30 
                     }
                 }
             },
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            var label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            if (context.parsed.y !== null) {
-                                label += context.parsed.y + ' seconds';
-                            }
-                            return label;
+            x: {
+                title: {
+                    display: true,
+                    text: 'Score',
+                    font: {
+                        size: 30 
+                    }
+                }
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 35 
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        var label = context.dataset.label || '';
+                        if (label) {
+                            label += ': ';
                         }
+                        if (context.parsed.y !== null) {
+                            label += context.parsed.y + ' seconds';
+                        }
+                        return label;
                     }
                 }
             }
         }
-    };
+    }
+};
+
 
 
     var myChart = new Chart(
@@ -368,48 +377,61 @@ function drawLineChart() {
 
   
     for (var i = 1; i < table.rows.length; i++) {
-        timestamps.push(table.rows[i].cells[2].innerHTML); 
-        times.push(parseFloat(table.rows[i].cells[3].innerHTML)); 
+        timestamps.push(table.rows[i].cells[1].innerHTML); 
+        times.push(parseFloat(table.rows[i].cells[2].innerHTML)); 
     }
 
-    // Setup the chart data
     var lineData = {
         labels: timestamps,
         datasets: [{
-            label: 'Time over Timestamp',
+            label: 'Gameplay over time',
             data: times,
             fill: false,
             borderColor: 'rgba(255, 99, 132, 1)',
-            tension: 0.1,
+            tension: 0.1
         }]
     };
 
 
     var lineConfig = {
-        type: 'line',
-        data: lineData,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Time',
-                        fontSize: 16
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Timestamp',
-                        fontSize: 16
+    type: 'line',
+    data: lineData,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Time',
+                    font: {
+                        size: 30 
                     }
                 }
             },
-            responsive: true,
-            maintainAspectRatio: false
+            x: {
+                title: {
+                    display: true,
+                    text: 'Timestamp',
+                    font: {
+                        size: 30 
+                    }
+                }
+            }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 35 
+                    }
+                }
+            }
         }
-    };
+    }
+};
+
 
     var myLineChart = new Chart(
         document.getElementById('timestampTimeChart'),
@@ -468,13 +490,23 @@ function drawPieChart() {
     };
 
     var pieConfig = {
-        type: 'pie',
-        data: pieData,
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
+    type: 'pie',
+    data: pieData,
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    font: {
+                        size: 35 
+                    }
+                }
+            }
         }
-    };
+    }
+};
+
 
     var myPieChart = new Chart(
         document.getElementById('nameScoreDistributionChart'),
