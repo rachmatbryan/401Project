@@ -320,13 +320,15 @@ function drawBarChart() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Time'
+                        text: 'Time',
+                        fontSize: 16
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Score'
+                        text: 'Score',
+                        fontSize: 16
                     }
                 }
             },
@@ -378,7 +380,7 @@ function drawLineChart() {
             data: times,
             fill: false,
             borderColor: 'rgba(255, 99, 132, 1)',
-            tension: 0.1
+            tension: 0.1,
         }]
     };
 
@@ -392,13 +394,15 @@ function drawLineChart() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Time'
+                        text: 'Time',
+                        fontSize: 16
                     }
                 },
                 x: {
                     title: {
                         display: true,
-                        text: 'Timestamp'
+                        text: 'Timestamp',
+                        fontSize: 16
                     }
                 }
             },
