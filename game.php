@@ -37,7 +37,7 @@ if (!$result) {
 }
 }
 
-$query = "SELECT * FROM table1"; // Replace 'table1' with your actual table name
+$query = "SELECT * FROM table1"; 
 $result = mysql_query($query, $conn);
 
 if (!$result) {
