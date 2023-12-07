@@ -264,8 +264,8 @@ if (!$result) {
             rows = table.rows;
             for (i = 1; i < (rows.length - 1); i++) {
                 shouldSwitch = false;
-                x = rows[i].getElementsByTagName("TD")[0];
-                y = rows[i + 1].getElementsByTagName("TD")[0];
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[i + 1].getElementsByTagName("TD")[3];
                 if (dir == "asc") {
                     if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
                         shouldSwitch = true;
@@ -431,8 +431,8 @@ function drawPieChart() {
     ];
 
     for (var i = 1; i < table.rows.length; i++) {
-        var name = table.rows[i].cells[1].innerHTML; 
-        var score = parseFloat(table.rows[i].cells[0].innerHTML); 
+        var name = table.rows[i].cells[0].innerHTML; 
+        var score = parseFloat(table.rows[i].cells[3].innerHTML); 
         if (!nameScoreMap[name]) {
             nameScoreMap[name] = 0;
         }
