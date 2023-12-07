@@ -173,7 +173,7 @@ try:
     lcd.putstr(" seconds")
 
     url = 'https://coastspas.com/randomdeveloperenv/game.php'
-    data = {'score': score, 'name':'LED Sequence'}
+    data = {'score': score,'name':'LED Sequence Memorization','time':elapsed_time}
     json_data=ujson.dumps(data)
     
     headers = {
