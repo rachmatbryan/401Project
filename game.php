@@ -22,6 +22,7 @@ if (!$db_selected) {
 
 
 $data = json_decode(file_get_contents('php://input'), true);
+if (!empty($data)) {
 $score = $data['score'];
 $name = $data['name'];
 $timestamp = date('Y-m-d H:i:s');
@@ -33,6 +34,7 @@ $sql = "INSERT INTO table1 (score, name, timestamp, time) VALUES ('$score', '$na
 $result = mysql_query($sql, $conn);
 if (!$result) {
     echo "Error: " . $sql . "<br>" . mysql_error();
+}
 }
 
 $query = "SELECT * FROM table1"; // Replace 'table1' with your actual table name
