@@ -197,10 +197,10 @@ if (!$result) {
 <table id="scoresTable">
     <thead>
         <tr>
-            <th>Score</th>
             <th>Name</th>
             <th>Timestamp</th>
             <th>Time</th>
+            <th>Score</th>
         </tr>
     </thead>
     <tbody>
@@ -209,10 +209,10 @@ if (!$result) {
         // PHP code to fetch data from the database
         while ($row = mysql_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row['score'] . "</td>";
             echo "<td>" . $row['name'] . "</td>";
             echo "<td>" . $row['timestamp'] . "</td>";
             echo "<td>" . $row['time'] . "</td>";
+            echo "<td>" . $row['score'] . "</td>";
             echo "</tr>";
         }
         mysql_close($conn);
