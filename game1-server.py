@@ -235,7 +235,7 @@ try:
 
 
     url = 'https://coastspas.com/randomdeveloperenv/game.php'
-    data = {'score': points, 'name':'Sound and LED Pairing'}
+    data = {'score': points,'name':'Color and Sound Matching','time':elapsed_time}
     json_data=ujson.dumps(data)
     
     headers = {
@@ -257,3 +257,4 @@ except:
     pwm1.deinit()
     pwm2.deinit()
     pass
+
