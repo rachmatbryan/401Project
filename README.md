@@ -52,5 +52,10 @@ Each game records the player's performance, which is then sent to a remote serve
 * **JSON:** Decode JSON string into PHP variable (connects with ujson on MicroPython)
 * **php://input:** Reads post data sent from MicroPython
 
+### Contributors
+
+- Andrew Daniel Singari
+- Bryan Rachmat
+- Professor Andrew Park 
 
 
