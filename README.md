@@ -18,7 +18,7 @@ Aims to develop a series of cognitive games designed to help dementia patients e
 
 * **Number Memorization Game:** Focuses on memorization, the user memorizes a sequence of numbers [Watch here](https://youtu.be/0-Y1nkv3sm8)
 * **LED Color Sequence Memorization Game:** Focuses on visuals and memorization, the user memorizes a color sequence [Watch here](https://youtu.be/rCcM60VJ71o)
-* **Color and Sound Memorization Game:** Focuses on hearing and memorization, the user matches the audio and color.
+* **Color and Sound Memorization Game:** Focuses on hearing and memorization, the user matches the audio and color.  [Watch here](https://youtube.com/shorts/b1Pay0B4rWc?si=Pg0U3IrycSMOKnu9)
 
 Each game records the player's performance, which is then sent to a remote server for storage and analysis. The web application component allows caregivers to monitor the progress of the players.
 
