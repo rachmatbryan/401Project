@@ -56,6 +56,6 @@ Each game records the player's performance, which is then sent to a remote serve
 
 - Andrew Daniel Singari
 - Bryan Rachmat
-- Professor Andrew Park 
+- Dr. Andrew Park 
 
 
