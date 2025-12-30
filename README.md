@@ -11,8 +11,8 @@ Aims to develop a series of cognitive games designed to help dementia patients e
 - Web server with PHP and MySQL support
 - Internet connection for the ESP-32
 
-![ESP-32 Breadboard](breadboard.png)
-![ESP-32 Circuit](circuit.png)
+<img src="breadboard.png" alt="ESP-32 Breadboard" width="400" />
+<img src="circuit.png" alt="ESP-32 Circuit" width="400" />
 
 ## Overview
 
@@ -57,5 +57,6 @@ Each game records the player's performance, which is then sent to a remote serve
 - Andrew Daniel Singari
 - Bryan Rachmat
 - Dr. Andrew Park 
+
 
 
