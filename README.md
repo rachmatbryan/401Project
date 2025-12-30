@@ -38,7 +38,7 @@ Each game records the player's performance, which is then sent to a remote serve
 2. **Viewing Results:**
     * Access the web application to view the scores and performance data of the players.
   
-<img src="images/scores-table.png" alt="Game Scores Table" width="500" />
+<img src="images/score-table.png" alt="Game Scores Table" width="500" />
 <img src="images/scorevstime.png" alt="Score Vs Time Graph" width="500" />
 <img src="images/score-graphs.png" alt="Game Scores Over Time" width="500" />
 
@@ -61,6 +61,7 @@ Each game records the player's performance, which is then sent to a remote serve
 - Andrew Daniel Singari
 - Bryan Rachmat
 - Dr. Andrew Park 
+
 
 
 
